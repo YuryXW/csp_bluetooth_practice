@@ -1,0 +1,18 @@
+<launch>
+  <arg name="veh" default="$(env VEHICLE_NAME)" />
+
+  <!--                    1. Duckiebot Master                               -->
+  <include file="$(find duckietown_demos)/launch/master.launch">
+
+  </include>
+
+  <!--                    2. Bluetooth Bridge                               -->
+  <include file="$(find bluetooth_bridge)/launch/bluetooth_bridge.launch">
+    <arg name="rfcomm_channel" value="22" />
+  </include>
+
+  <!--                    3. Bluetooth Demo Node                            -->
+  <include file="$(find csp_bluetooth_demo)/launch/bluetooth_demo_node.launch">
+    <arg name="veh" value="$(arg veh)" />
+  </include>
+</launch>

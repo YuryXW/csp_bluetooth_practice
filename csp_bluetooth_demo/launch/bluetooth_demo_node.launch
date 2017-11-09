@@ -1,0 +1,7 @@
+<launch>
+  <arg name="veh" default="$(env VEHICLE_NAME)" />
+
+  <node ns="$(arg veh)" name="csp_bluetooth_demo_node" pkg="csp_bluetooth_demo" type="csp_bluetooth_demo_node.py" output="screen">
+  </node>
+
+</launch>
